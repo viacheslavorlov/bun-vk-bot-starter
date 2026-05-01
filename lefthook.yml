@@ -7,3 +7,11 @@ pre-commit:
     typecheck:
       run: bun run tsc --noEmit
       glob: '*.ts'
+pre-push:
+  commands:
+    check-version:
+      run: |
+        if ! git diff origin/main --name-only | grep -q package.json; then
+          echo "Warning: package.json version not changed. Consider running 'bun release'"
+        fi
+      skip: true # не блокирует пуш
