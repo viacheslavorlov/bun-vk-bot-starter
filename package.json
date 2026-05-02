@@ -12,7 +12,7 @@
     "start:node": "NODE_ENV=production node dist/index.js",
     "dev": "bun --watch ./src/index.ts",
     "build": "bun build src/index.ts --outdir dist --target=bun",
-    "build:binary": "bun build --compile --minify --sourcemap ./src/index.ts --outfile bot",
+    "build:binary": "bun build --compile --minify --sourcemap ./src/index.ts --outfile binary/bot",
     "build:bun": "bun build src/index.ts --outdir dist --target=bun --minify --sourcemap",
     "build:node": "bun build src/index.ts --outdir dist --target=node --minify --sourcemap",
     "typecheck": "bun run tsc --noEmit",
