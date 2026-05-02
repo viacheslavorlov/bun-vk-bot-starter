@@ -1,14 +1,15 @@
-import logger from 'pino';
+import pino from 'pino';
 
-export const log = logger({
-  level: Bun.env.LOG_LEVEL ?? 'debug',
-  transport: {
-    target: 'pino-pretty',
-    options: {
-      colorize: true,
-      colorizeObjects: true,
-    },
-  },
+const isProduction = process.env.NODE_ENV === 'production';
+
+export const log = pino({
+  level: isProduction ? 'info' : 'debug',
+  transport: isProduction
+    ? undefined // стандартный JSON-вывод
+    : {
+        target: 'pino-pretty',
+        options: { colorize: true },
+      },
 });
 
 export function logObject(obj: unknown, message?: string) {
