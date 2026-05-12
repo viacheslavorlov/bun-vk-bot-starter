@@ -7,3 +7,6 @@ All notable changes to this project will be documented in this file. See [standa
 ## [1.0.0](https://github.com/viacheslavorlov/bun-vk-bot-starter/compare/v0.0.2...v1.0.0) (2026-05-02)
 
 ### 0.0.2 (2026-05-01)
+
+- bunfig.toml added
+- BUN_PORT variable added
